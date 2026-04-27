@@ -13,7 +13,7 @@ def get_user_choice():
 def show_invalid_input():
     print("> ❌ Invalid Input! Bhai, sirf 'rock', 'paper', ya 'scissors' type karo.")
 
-def show_choices():
+def show_choices(user_choice,comp_choice):
     print(f"\n 👉 You played {user_choice.title()}")
     print(f"\n🤖 Computer played: {comp_choice.title()} ")    
 
