@@ -14,7 +14,10 @@ def main():
         elif choice == "":
             secret = game_logic.generate_secret_number()
             ui.show_game_start()
+            
+            # Naya logic: Attempts track karne ke liye
             attempts = 0
+            MAX_attempts = 10
 
             while True:
                 # UI se kaho ki user ka guess le kar aaye
@@ -26,9 +29,13 @@ def main():
                     continue
                 attempts += 1
 
-                if guess < 1 and guess > 100:
+                if guess < 1 or guess > 100:
                     ui.show_invalid_range()
                     continue
+
+                # Valid guess hone par attempt count badhao
+                attempts += 1
+                attempts_left: int = MAX_attempts - attempts
 
                 # Logic se check karwao ki guess kaisa tha
                 result = game_logic.check_guess(secret, guess)
@@ -37,7 +44,13 @@ def main():
                     ui.show_win()
                     break
                 else:
-                    ui.show_hint(result)
+                    # Agar abhi jeete nahi, aur attempts zero ho gaye hain
+                    if attempts_left == 0:
+                        ui.show_loss(secret)
+                        break # Inner loop tod do, naya game pucho
+                    else:
+                        # Agar attempts baaki hain toh hint dikhao
+                        ui.show_hint(result,attempts_left)
         else:
             ui.invalid_input()
 
