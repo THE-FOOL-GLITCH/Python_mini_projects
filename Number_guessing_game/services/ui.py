@@ -13,7 +13,7 @@ def show_game_start():
 
 def get_guess():
     try:
-        return int(input("\n Enter your guess: ")).strip()
+        return int(input("\n Enter your guess: ").strip())
     except ValueError:
         return None # Agar user ne words type kiye toh None bhej do
 
@@ -26,9 +26,9 @@ def invalid_input():
 # Update: Ab hint ke sath attempts_left bhi print karenge
 def show_hint(hint_type,attempts_left):
     if hint_type == "Low":
-        print("> Thoda bada number socho! (Too low) - Sirf {attempts_left} tries baaki hain!")
+        print(f"> Thoda bada number socho! (Too low) - Sirf {attempts_left} tries baaki hain!")
     elif hint_type == "High":
-        print("> Thoda chota number socho! (Too high) - Sirf {attempts_left} tries baaki hain!")    
+        print(f"> Thoda chota number socho! (Too high) - Sirf {attempts_left} tries baaki hain!")    
 
 def show_win(attempts):
     print(f"> Badhai ho! 🎉 You won! Tumne sirf {attempts} attempts mein sahi number guess kiya.") 

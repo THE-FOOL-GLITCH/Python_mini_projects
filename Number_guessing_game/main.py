@@ -27,8 +27,7 @@ def main():
                 if guess is None:
                     ui.invalid_input()
                     continue
-                attempts += 1
-
+                
                 if guess < 1 or guess > 100:
                     ui.show_invalid_range()
                     continue
@@ -41,7 +40,7 @@ def main():
                 result = game_logic.check_guess(secret, guess)
 
                 if result == "win":
-                    ui.show_win()
+                    ui.show_win(attempts)
                     break
                 else:
                     # Agar abhi jeete nahi, aur attempts zero ho gaye hain
