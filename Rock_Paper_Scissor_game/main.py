@@ -8,7 +8,8 @@ def main():
         user_choice = ui.get_user_choice()
         
         if user_choice == "q":
-            return ui.show_game_over()
+            ui.show_game_over()
+            break
         
         validated_choices = ["rock", "paper", "scissors"]
         if user_choice not in validated_choices:
